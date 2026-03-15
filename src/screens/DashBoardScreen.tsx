@@ -29,11 +29,12 @@ const TIME_FILTERS = [
 
 export function DashboardScreen() {
   const insets = useSafeAreaInsets();
-  const isDark = useColorScheme() === "dark";
+  const isDark = useColorScheme() == "dark";
+  console.log(isDark,"isdrak")
   const C = isDark ? Colors.dark : Colors.light;
   const [filterDays, setFilterDays] = useState(30);
   const [filterLabel, setFilterLabel] = useState("30D");
-  const topPad = Platform.OS === "web" ? 67 : insets.top;
+  const topPad =  insets.top;
 
   const { data, isLoading, isError, refetch, isFetching } =
     useQuery<DashboardData>({
@@ -41,7 +42,6 @@ export function DashboardScreen() {
       queryFn: api.getDashboard,
     });
 
-    console.log( data, isLoading, isError, refetch, isFetching," data, isLoading, isError, refetch, isFetching")
 
   if (isLoading) {
     return (

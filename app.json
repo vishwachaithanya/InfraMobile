@@ -4,16 +4,27 @@
     "slug": "InfraMobileApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/bestinfra_logo.jpg",
     "userInterfaceStyle": "light",
+
+    "updates": {
+      "url": "https://u.expo.dev/465421eb-8245-48b2-acaf-062a6a9593ce"
+    },
+
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/bestinfra_logo.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+
     "ios": {
       "supportsTablet": true
     },
+
     "android": {
       "package": "com.vishwachaithanya.inframobile",
       "adaptiveIcon": {
@@ -24,9 +35,7 @@
       },
       "predictiveBackGestureEnabled": false
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
+
     "extra": {
       "eas": {
         "projectId": "465421eb-8245-48b2-acaf-062a6a9593ce"

@@ -11,7 +11,6 @@ function ClassicTabLayout() {
   const isDark = colorScheme === "dark";
   const C = isDark ? Colors.dark : Colors.light;
   const isIOS = Platform.OS === "ios";
-  const isWeb = Platform.OS === "web";
 
   return (
     <Tabs
@@ -22,7 +21,7 @@ function ClassicTabLayout() {
         tabBarStyle: {
           position: "absolute",
           backgroundColor: isIOS ? "transparent" : isDark ? "#0A0E1A" : "#fff",
-          borderTopWidth: isWeb ? 1 : 0,
+          borderTopWidth: 0,
           borderTopColor: C.border,
           elevation: 0,
         },

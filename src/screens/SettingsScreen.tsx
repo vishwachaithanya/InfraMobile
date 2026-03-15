@@ -58,7 +58,7 @@ export function SettingsScreen() {
   const isDark = useColorScheme() === "dark";
   const C = isDark ? Colors.dark : Colors.light;
   const { logout, consumerName } = useAuth();
-  const topPad = Platform.OS === "web" ? 67 : insets.top;
+  const topPad = insets.top;
   const [notifications, setNotifications] = useState(true);
 
   const handleLogout = async () => {
@@ -76,7 +76,7 @@ export function SettingsScreen() {
         <Text style={[styles.headerSub, { fontFamily: "Inter_400Regular" }]}>{consumerName}</Text>
       </View>
       <ScrollView
-        contentContainerStyle={[styles.content, { paddingBottom: Platform.OS === "web" ? 120 : 110 }]}
+        contentContainerStyle={[styles.content, { paddingBottom: 110 }]}
         showsVerticalScrollIndicator={false}
       >
         <Text style={[styles.sectionLabel, { color: C.textMuted, fontFamily: "Inter_500Medium" }]}>

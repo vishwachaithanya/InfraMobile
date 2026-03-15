@@ -73,7 +73,7 @@ export function NotificationsScreen() {
   const insets = useSafeAreaInsets();
   const isDark = useColorScheme() === "dark";
   const C = isDark ? Colors.dark : Colors.light;
-  const topPad = Platform.OS === "web" ? 67 : insets.top;
+  const topPad =insets.top;
 
   const { data = { notifications: [], unreadCount: 0 }, isLoading, isError, refetch, isFetching } = useQuery<{ notifications: Notification[]; unreadCount: number }>({
     queryKey: ["notifications"],
@@ -112,7 +112,7 @@ export function NotificationsScreen() {
         <FlatList
           data={data?.notifications ?? []}
           keyExtractor={(item) => String(item.id)}
-          contentContainerStyle={[styles.list, { paddingBottom: Platform.OS === "web" ? 120 : 110 }]}
+          contentContainerStyle={[styles.list, { paddingBottom: 110 }]}
           refreshControl={<RefreshControl refreshing={isFetching} onRefresh={refetch} tintColor={C.primary} />}
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={

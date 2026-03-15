@@ -84,9 +84,16 @@ export function ProfileScreen() {
         <Text style={styles.headerEmail}>{profile?.email}</Text>
       </View>
 
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : "height"}>
-        <ScrollView contentContainerStyle={styles.form} keyboardShouldPersistTaps="handled">
-          <View style={styles.rowBetween}>
+<KeyboardAvoidingView
+  style={{ flex: 1 }}
+  behavior={Platform.OS === "ios" ? "padding" : undefined}
+>
+<ScrollView
+  contentContainerStyle={[styles.form, { flexGrow: 1 }]}
+  keyboardShouldPersistTaps="handled"
+  showsVerticalScrollIndicator={false}
+  keyboardDismissMode="interactive"
+>           <View style={styles.rowBetween}>
             <Text style={[styles.sectionTitle, { color: C.text }]}>Account Details</Text>
             {!editing ? (
               <Pressable onPress={() => setEditing(true)} style={[styles.editBtn, { backgroundColor: C.surface }]}>
@@ -154,7 +161,11 @@ const styles = StyleSheet.create({
   avatarText: { fontSize: 24, color: "#fff", fontWeight: "bold" },
   headerName: { fontSize: 20, color: "#fff", fontWeight: "bold" },
   headerEmail: { fontSize: 14, color: "rgba(255,255,255,0.8)" },
-  form: { padding: 20, gap: 15 },
+  form: { 
+    padding: 20, 
+    gap: 15,
+    paddingBottom: 100, // Add this! It ensures the last input isn't hidden by the keyboard/tab bar
+  },
   rowBetween: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 5 },
   sectionTitle: { fontSize: 16, fontWeight: "bold" },
   editBtn: { flexDirection: "row", alignItems: "center", gap: 5, padding: 8, borderRadius: 8 },

@@ -32,8 +32,8 @@ export function LoginScreen() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const topPad = Platform.OS === "web" ? 67 : insets.top;
-  const botPad = Platform.OS === "web" ? 34 : insets.bottom;
+  const topPad =  insets.top;
+  const botPad = insets.bottom;
 
   const handleLogin = async () => {
     setError("");

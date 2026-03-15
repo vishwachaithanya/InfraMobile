@@ -73,7 +73,7 @@ export function OnboardingScreen() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const isDark = useColorScheme() === "dark";
   const C = isDark ? Colors.dark : Colors.light;
-  const topPad = Platform.OS === "web" ? 67 : insets.top;
+  const topPad = insets.top;
 
   const goToLogin = async () => {
     await Storage.markOnboardingSeen();
@@ -142,7 +142,7 @@ export function OnboardingScreen() {
       <View
         style={[
           styles.footer,
-          { paddingBottom: Platform.OS === "web" ? 34 : insets.bottom + 20 },
+          { paddingBottom: insets.bottom + 20 },
         ]}
       >
         <View style={styles.dots}>
